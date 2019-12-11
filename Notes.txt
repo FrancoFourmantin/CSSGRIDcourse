@@ -1,0 +1,85 @@
+Se utiliza grid-template-columns: para asignar tamaños y cantidad de columnas
+
+grid-template-columns: 100px 100px 100px;
+
+esto indicaria que si tenemos 6 items dentro de la grilla vamos a estar viendo 3 columnas de 100px de ANCHO cada una
+
+------------------------------------------------
+Se utiliza grid-template-rows: lo mismo solo que para las filas. Si no se encuentra ninguna columna tomara un ancho del 100% de su contenedor
+
+grid-template-rows: 100px 100px 100px;
+
+aqui tendriamos 3 filas de un ALTO de 100px
+
+--------------------------------------------------
+grid-gap: se utiliza para generar un margin entre los items
+
+--------------------------------------------------
+Se utiliza grid-auto-row para espeficiar el tamaño de las filas que se generan de manera implicitas(items que se encuentra dentro del contenedor grid pero no fueron seteado previamente)
+
+grid-auto-row: 100px 500px;
+
+--------------------------------------------------
+Se utiliza grid-auto-flow para definir en que direciion se van a posicionar los items implicitos , solo tiene dos valores COLUMNS and ROWS(defalut)
+
+grid-auto-flow: columns;
+
+--------------------------------------------------
+Se utiliza grid-auto-columns para definir el tamaño de las columnas implicitas
+
+grid-auto-columns: 100px ;
+
+-------------------------------------------------
+Para definir las dimensiones de los items de la grid se utiliza la unidad  FR de fraccion, que lo que a hacer en las COLUMNAS es fraccionar el espacio libre para que cada item ocupe esa fraccion de espacio, en el caso de la altura se deberia definir una altura para el contenedor para que esto funcione.
+
+example:
+
+grid-template-columns: 1fr 2fr 3fr 4fr;
+--------------------------------------------------
+Se utiliza maxmin para determinar un minimo y un maximo que pueden llegar a medir los items:
+
+grid-template-columns: repeat(auto-fit(150px, 450px))
+
+donde 150 va a ser el minimo y 450 el maximo, esto serviria para hacer el sitio responsive
+
+--------------------------------------------------
+Se utiliza grid template areas para crear una estructura con nombres en la grilla, esto va a depender de los items que tengamos
+
+grid-template-areas: 
+	"header    header  header"
+	"sidebar-1 content sidebar-2"
+	"sidebar-1 content sidebar-2"
+	"footer    footer  footer"
+
+para asignarselo a un item
+
+.item{
+	grid-area: sidebar-1;
+}
+
+esto haria que el item ocupe todo el espacio que definimos con sidebar-1
+
+--------------------------------------------------
+Se utiliza grid-auto-flow para que en la grilla no existan huecos vacios, esto lo hace agarrando el proximo item que quepa en el lugar vacio y lo mete ahi
+
+grid-auto-flow: dense;
+
+--------------------------------------------------
+tenemos las propiedades:
+ justify eje x                      align eje y
+
+Esta se utiliza para mover el contenido dentro de los items, puede tomar los valores de start center y end
+justify-items:
+align-items:
+
+Esta se utiliza para cuando sobra espacio en el container, que los items ocupen mejor el espacio
+puede tomar los valores de start end center space-between space-around;
+justify-content:
+align-content:
+
+Esta es una propiedad espefica para los items 
+que hace lo mismo que la primera
+justify-self:
+align-self:
+
+	 
